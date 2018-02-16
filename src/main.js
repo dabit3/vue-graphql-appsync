@@ -23,13 +23,11 @@ const options = {
 }
 
 const client = new AWSAppSyncClient(config, options)
-
 const appsyncProvider = new VueApollo({
   defaultClient: client
 })
 
 Vue.config.productionTip = false
-
 Vue.use(VueApollo)
 
 new Vue({
