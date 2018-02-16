@@ -22,7 +22,7 @@ import DeleteTodo from '../mutations/DeleteTodo'
 import UpdateTodo from '../mutations/UpdateTodo'
 import uuidV4 from 'uuid/v4'
 export default {
-  name: 'HelloWorld',
+  name: 'Todos',
   methods: {
     toggleComplete(todo) {
       const updatedTodo = {

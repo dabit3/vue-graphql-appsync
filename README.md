@@ -1,21 +1,28 @@
-# vue-graphql
+# Vue + [AWS AppSync](https://aws.amazon.com/appsync/) + GraphQL App
 
-> A Vue.js project
+This project takes advantate of the following projects to connect [AppSync](https://aws.amazon.com/appsync/) with a Vue Project:
 
-## Build Setup
+- [aws-appsync](https://github.com/awslabs/aws-mobile-appsync-sdk-js)
+- [vue-apollo](https://github.com/Akryum/vue-apollo)
 
-``` bash
-# install dependencies
-npm install
+## Getting started    
 
-# serve with hot reload at localhost:8080
-npm run dev
+1. clone project    
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+```
+git clone https://github.com/dabit3/vue-graphql-appsync.git
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+2. cd into directory    
+
+```
+cd vue-graphql-appsync
+```
+
+3. install dependencies using npm or yarn    
+
+```
+yarn || npm install
+```
+
+4. update your credentials in `src/AppSync.js`    

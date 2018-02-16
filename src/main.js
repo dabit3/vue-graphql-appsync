@@ -4,23 +4,21 @@ import router from './router'
 
 import AWSAppSyncClient from "aws-appsync"
 import VueApollo from 'vue-apollo'
-
 import appSyncConfig from './AppSync'
 
 const client = new AWSAppSyncClient({
-  // disableOffline: true,
   url: appSyncConfig.graphqlEndpoint,
   region: appSyncConfig.region,
   auth: {
     type: appSyncConfig.authenticationType,
     apiKey: appSyncConfig.apiKey,
   }
-}, {
+},{
   defaultOptions: {
     watchQuery: {
       fetchPolicy: 'cache-and-network',
-    },
-  },
+    }
+  }
 })
 
 const appsyncProvider = new VueApollo({
