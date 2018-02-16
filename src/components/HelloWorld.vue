@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
-    <input v-model="todoname" placeholder="Todo Name">
-    <button @click="addTodo()">Add Todo</button>
+    <input v-model="todoname" placeholder="Todo Name" class="input">
+    <button @click="addTodo()" class="todobutton">Add Todo</button>
     <ul>
       <li
         class="todo"
@@ -31,7 +31,20 @@ export default {
       }
       this.$apollo.mutate({
         mutation: UpdateTodo,
-        variables: updatedTodo
+        variables: updatedTodo,
+        update: (store, { data: { updateTodo } }) => {
+          const data = store.readQuery({ query: ListTodos })
+          const index = data.listTodos.items.findIndex(item => item.id === updateTodo.id)
+          data.listTodos.items[index] = updateTodo
+          store.writeQuery({ query: ListTodos, data })
+        },
+        optimisticResponse: {
+          __typename: 'Mutation',
+          updateTodo: {
+            __typename: 'Todo',
+            ...updatedTodo
+          }
+        },
       })
       .then(data => {
         console.log(data)
@@ -46,6 +59,18 @@ export default {
         variables: {
           id: todo.id
         },
+        update: (store, { data: { deleteTodo } }) => {
+          const data = store.readQuery({ query: ListTodos })
+          data.listTodos.items = data.listTodos.items.filter(todo => todo.id !== deleteTodo.id)
+          store.writeQuery({ query: ListTodos, data })
+        },
+        optimisticResponse: {
+          __typename: 'Mutation',
+          deleteTodo: {
+            __typename: 'Todo',
+            ...todo
+          }
+        },
       })
       .then(data => {
         console.log(data)
@@ -56,6 +81,10 @@ export default {
     },
     addTodo() {
       const todoname = this.todoname
+      if ((todoname) === '') {
+        alert('please create a todo')
+        return
+      }
       this.todoname = ''
       const id = uuidV4()
       const todo = {
@@ -107,8 +136,18 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.todobutton {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+.input {
+  width: 100%;
+  padding: 8px;
+  font-size: 18px;
+}
 .button {
-  cursor: pointer;  
+  cursor: pointer;
 }
 .button:hover {
   opacity: 0.5
