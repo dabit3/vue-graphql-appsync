@@ -1,6 +1,6 @@
 # Vue + [AWS AppSync](https://aws.amazon.com/appsync/) + GraphQL App
 
-This project takes advantate of the following projects to connect [AppSync](https://aws.amazon.com/appsync/) with a Vue Project:
+This project takes advantage of the following projects to connect [AppSync](https://aws.amazon.com/appsync/) with a Vue Project:
 
 - [aws-appsync](https://github.com/awslabs/aws-mobile-appsync-sdk-js)
 - [vue-apollo](https://github.com/Akryum/vue-apollo)
