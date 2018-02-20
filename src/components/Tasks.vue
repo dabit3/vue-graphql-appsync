@@ -47,12 +47,8 @@ export default {
           }
         },
       })
-      .then(data => {
-        console.log(data)
-      })
-      .catch(error => {
-        console.error(error)
-      })
+      .then(data => console.log(data))
+      .catch(error => console.error(error))
     },
     deleteTask(task) {
       this.$apollo.mutate({
@@ -73,12 +69,8 @@ export default {
           }
         },
       })
-      .then(data => {
-        console.log(data)
-      })
-      .catch(error => {
-        console.error(error)
-      })
+      .then(data => console.log(data))
+      .catch(error => console.error(error))
     },
     createTask() {
       const taskname = this.taskname
@@ -109,12 +101,8 @@ export default {
           }
         },
       })
-      .then(data => {
-        console.log(data)
-      })
-      .catch(error => {
-        console.error("error!!!: ", error)
-      })
+      .then(data => console.log(data))
+      .catch(error => console.error("error!!!: ", error))
     },
   },
   data () {
@@ -126,10 +114,7 @@ export default {
   apollo: {
     tasks: {
       query: () => ListTasks,
-      update: data => {
-        console.log('data: ', data)
-        return data.listTasks.items
-      }
+      update: data => data.listTasks.items
     }
   },
 }
