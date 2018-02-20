@@ -26,7 +26,7 @@ cd vue-graphql-appsync
 yarn || npm install
 ```
 
-4. Create a new AppSync Project with the following schema:    
+4. create a new AppSync Project with the following schema:    
 
 [Video walkthrough](https://www.youtube.com/watch?v=0Xbt7VqkJNc) (replace Todo with Task, and fetchTodos with fetchTasks), or go to [AWS AppSync](https://aws.amazon.com/appsync/) if you already are familiar with how to create the correct schema.
 
