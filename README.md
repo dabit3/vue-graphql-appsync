@@ -1,11 +1,10 @@
 # Vue + [AWS AppSync](https://aws.amazon.com/appsync/) + GraphQL App
 
+Task Manager Application built using [Vue](https://vuejs.org/), [AWS AppSync](https://aws.amazon.com/appsync/), and [Vue Apollo](https://github.com/Akryum/vue-apollo)  
+This application goes along with the medium blog [Full Stack Vue with GraphQL & AWS AppSync](https://medium.com/@dabit3/full-stack-vue-with-graphql-aws-appsync-adc5af474dc9)
+
 ![](https://i.imgur.com/9TdyOOi.jpg)    
 
-This project takes advantate of the following projects to connect [AppSync](https://aws.amazon.com/appsync/) with a Vue Project:
-
-- [aws-appsync](https://github.com/awslabs/aws-mobile-appsync-sdk-js)
-- [vue-apollo](https://github.com/Akryum/vue-apollo)
 
 ## Getting started    
 
