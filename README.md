@@ -26,4 +26,55 @@ cd vue-graphql-appsync
 yarn || npm install
 ```
 
-4. update your credentials in `src/AppSync.js`    
+4. Create a new AppSync Project with the following schema:    
+
+[Video walkthrough](https://www.youtube.com/watch?v=0Xbt7VqkJNc) (replace Todo with Task, and fetchTodos with fetchTasks), or go to [AWS AppSync](https://aws.amazon.com/appsync/) if you already are familiar with how to create the correct schema.
+
+```
+input CreateTaskInput {
+ id: ID!
+ name: String!
+ completed: Boolean!
+}
+input DeleteTaskInput {
+ id: ID!
+}
+type Mutation {
+ createTask(input: CreateTaskInput!): Task
+ updateTask(input: UpdateTaskInput!): Task
+ deleteTask(input: DeleteTaskInput!): Task
+}
+type Query {
+ getTask(id: ID!): Task
+ listTasks(first: Int, after: String): TaskConnection
+}
+type Subscription {
+ onCreateTask(id: ID, name: String, completed: Boolean): Task
+  @aws_subscribe(mutations: ["createTask"])
+ onUpdateTask(id: ID, name: String, completed: Boolean): Task
+  @aws_subscribe(mutations: ["updateTask"])
+ onDeleteTask(id: ID, name: String, completed: Boolean): Task
+  @aws_subscribe(mutations: ["deleteTask"])
+}
+type Task {
+ id: ID!
+ name: String!
+ completed: Boolean!
+}
+type TaskConnection {
+ items: [Task]
+ nextToken: String
+}
+input UpdateTaskInput {
+ id: ID!
+ name: String
+ completed: Boolean
+}
+schema {
+ query: Query
+ mutation: Mutation
+ subscription: Subscription
+}
+```
+
+5. update your credentials in `src/AppSync.js`    
