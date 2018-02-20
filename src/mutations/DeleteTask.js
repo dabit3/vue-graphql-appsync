@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  mutation deleteTodo($id: ID!) {
-    deleteTodo(
+  mutation deleteTask($id: ID!) {
+    deleteTask(
       input: {
         id: $id
       }

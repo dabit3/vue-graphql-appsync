@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  query listTodos {
-    listTodos {
+  query listTasks {
+    listTasks {
       items {
         id
         name

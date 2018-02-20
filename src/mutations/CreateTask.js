@@ -1,12 +1,11 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  mutation addTodo($id: ID!, $name: String!, $completed: Boolean!) {
-    createTodo(
+  mutation createTask($id: ID!, $name: String!, $completed: Boolean!) {
+    createTask(
       input: {
         id: $id, name: $name, completed: $completed
       }
-      
     ) {
       id
       name

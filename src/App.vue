@@ -7,11 +7,7 @@
 <script>
 export default {
   name: 'App',
-  data() {
-    return {
-      hydrated: false,
-    }
-  },
+  data: () => ({ hydrated: false }),
   async mounted() {
     await this.$apollo.provider.defaultClient.hydrated();
     this.hydrated = true;
@@ -26,7 +22,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 </style>

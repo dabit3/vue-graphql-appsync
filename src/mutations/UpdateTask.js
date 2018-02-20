@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  mutation updateTodo($id: ID!, $name: String!, $completed: Boolean!) {
-    updateTodo(
+  mutation updateTask($id: ID!, $name: String!, $completed: Boolean!) {
+    updateTask(
       input: {
         id: $id
         name: $name
