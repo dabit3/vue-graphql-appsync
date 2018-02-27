@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import setimmediate from 'setimmediate'
 import AWSAppSyncClient from "aws-appsync"
 import VueApollo from 'vue-apollo'
 import appSyncConfig from './AppSync'
